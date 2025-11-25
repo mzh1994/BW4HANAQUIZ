@@ -316,6 +316,28 @@ const questions = const questions = [
     "correct": "B"
   },
   {
+  "id": 29,
+  "text": "You want to create an HDI Calculation View (data category Dimension) and integrate it into an HDI Calculation View (data category Cube with Star Join) of the same HDI container. What is the first required step you need to take?",
+  "options": {
+    "A": "Create a synonym for the HDI Calculation View (data category of Dimension).",
+    "B": "Create a synonym for the HDI Calculation View (data category Cube with Star Join).",
+    "C": "Create and build the HDI Calculation View (data category Cube with Star Join).",
+    "D": "Create and build the HDI Calculation view (data category Dimension)."
+  },
+  "correct": ["D"]
+},
+  {
+  "id": 30,
+  "text": "Where is the button that automatically generates a process chain?",
+  "options": {
+    "A": "In the app called Process Chain Edi",
+    "B": "In the editor of a data flow object",
+    "C": "In the SAP GUI transaction for Process Chain Maintenance",
+    "D": "In the editor of a data transfer process"
+  },
+  "correct": ["B"]
+},
+  {
     "id": 31,
     "text": "You have an existing field-based data flow that follows the LSA++ concept. To meet a new urgent business requirement for a field, you want to leverage a hierarchy of an existing characteristic without changing the transformation. How can you achieve this? Note: There are 2 correct answers to this question.",
     "options": {
@@ -1039,6 +1061,7 @@ function restart() {
   document.getElementById("result-screen").classList.add("hidden");
   document.getElementById("mode-screen").classList.remove("hidden");
 }
+
 
 
 
