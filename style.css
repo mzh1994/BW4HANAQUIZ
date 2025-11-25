@@ -1,105 +1,501 @@
+:root {
+  --sap-shell-bg: #f4f7fb;
+  --sap-brand-color: #0a6ed1;
+  --sap-brand-color-light: #e3f2ff;
+  --sap-accent-color: #ffb300;
+  --sap-text-color: #0a1f33;
+  --sap-muted-text: #60738a;
+  --sap-border-color: #dde3ec;
+  --sap-card-bg: #ffffff;
+
+  --sap-radius-s: 4px;
+  --sap-radius-m: 10px;
+  --sap-radius-l: 16px;
+
+  --sap-shadow-soft: 0 4px 14px rgba(15, 34, 58, 0.12);
+  --sap-shadow-elevated: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background: #c0c0c0;
-  font-family: Tahoma, Arial, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--sap-shell-bg);
+  color: var(--sap-text-color);
 }
 
-.sap-container {
-  width: 800px;
-  margin: auto;
+/* LAYOUT */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.sap-panel {
-  background: #dcdcdc;
-  border: 2px solid #8b8b8b;
-  box-shadow: inset 2px 2px 2px #ffffff, inset -2px -2px 2px #7d7d7d;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.sap-title {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: bold;
-  color: #003366;
-}
-
-.sap-header {
-  font-weight: bold;
+.app-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.sap-question {
-  background: #ffffff;
-  padding: 10px;
-  border: 1px solid #7d7d7d;
-  box-shadow: inset 1px 1px 2px #ffffff, inset -1px -1px 2px #7d7d7d;
-  margin-bottom: 15px;
-}
-
-.sap-options {
-  margin-bottom: 10px;
-}
-
-.sap-option-row {
-  padding: 6px;
-  margin-bottom: 4px;
-  background: #efefef;
-  border: 1px solid #b0b0b0;
-  box-shadow: inset 1px 1px 2px #ffffff, inset -1px -1px 2px #7d7d7d;
-  display: flex;
   align-items: center;
-  cursor: pointer;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #074381, #0a6ed1);
+  color: #ffffff;
+  box-shadow: var(--sap-shadow-soft);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.sap-option-row input {
-  margin-right: 10px;
+.app-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.sap-option-row.selected {
-  background: #d0e0ff;
-  border-color: #003366;
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.sap-option-row.correct {
-  background: #ccffcc;
-  border-color: #008000;
+.app-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.85;
 }
 
-.sap-option-row.incorrect {
-  background: #ffcccc;
-  border-color: #cc0000;
+.app-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.sap-feedback {
-  min-height: 20px;
-  font-weight: bold;
-  margin-top: 8px;
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 16px;
 }
 
-.sap-footer {
-  text-align: right;
-  margin-top: 10px;
+.sap-card {
+  background: var(--sap-card-bg);
+  border-radius: var(--sap-radius-l);
+  box-shadow: var(--sap-shadow-soft);
+  padding: 20px 22px;
 }
 
-/* SAP R/3 Classic 3D Buttons */
+/* TITLES */
+
+.sap-title {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.sap-subtitle {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--sap-muted-text);
+}
+
+/* BUTTONS */
+
 .sap-btn {
-  background: #d4d0c8;
-  border: 2px solid #7d7d7d;
-  padding: 6px 14px;
-  margin: 4px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
-  box-shadow: 2px 2px 0 #ffffff inset, -2px -2px 0 #7d7d7d inset;
+  background: #e0e6f0;
+  color: var(--sap-text-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.06s ease,
+    border-color 0.18s ease;
+}
+
+.sap-btn:hover {
+  background: #dde6f5;
+  box-shadow: 0 2px 6px rgba(4, 27, 63, 0.15);
 }
 
 .sap-btn:active {
-  box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #7d7d7d;
-  background: #e0e0e0;
+  transform: translateY(1px);
+  box-shadow: none;
 }
 
+.sap-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Variants */
+
+.sap-btn-primary {
+  background: var(--sap-brand-color);
+  color: #ffffff;
+}
+
+.sap-btn-primary:hover {
+  background: #0b5ab0;
+}
+
+.sap-btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.sap-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sap-btn-ghost {
+  background: transparent;
+  border-color: var(--sap-border-color);
+  color: var(--sap-text-color);
+}
+
+.sap-btn-ghost:hover {
+  background: #f0f4fb;
+}
+
+.sap-btn-accent {
+  background: var(--sap-accent-color);
+  color: #212121;
+}
+
+.sap-btn-accent:hover {
+  background: #ffa000;
+}
+
+/* QUIZ AREA */
+
+.quiz-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.quiz-counter {
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.quiz-total {
+  font-size: 0.8rem;
+  color: var(--sap-muted-text);
+}
+
+/* PROGRESS BAR */
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #e1e7f0;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0a6ed1, #39a4ff);
+  transition: width 0.2s ease-out;
+}
+
+/* QUESTION & OPTIONS */
+
+.sap-question {
+  background: #f8fafc;
+  border-radius: var(--sap-radius-m);
+  padding: 14px 16px;
+  border: 1px solid var(--sap-border-color);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.sap-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sap-option-row {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--sap-radius-m);
+  border: 1px solid #e1e7f0;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.16s ease, box-shadow 0.16s ease,
+    border-color 0.16s ease, transform 0.06s ease;
+}
+
+.sap-option-row:hover {
+  background: #f5f8ff;
+  box-shadow: 0 2px 6px rgba(0, 43, 116, 0.08);
+  transform: translateY(-1px);
+}
+
+.sap-option-row.selected {
+  border-color: var(--sap-brand-color);
+  background: var(--sap-brand-color-light);
+}
+
+/* Correct / incorrect states when "Show Answer" was used */
+
+.sap-option-row.correct {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.sap-option-row.incorrect {
+  border-color: #c62828;
+  background: #ffebee;
+}
+
+/* option indicator & label */
+
+.option-indicator {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid #c0ccdd;
+  margin-top: 2px;
+}
+
+.option-indicator.checkbox {
+  border-radius: 4px;
+}
+
+.sap-option-row.selected .option-indicator {
+  border-color: var(--sap-brand-color);
+  background: var(--sap-brand-color);
+}
+
+.sap-option-row.correct .option-indicator {
+  border-color: #2e7d32;
+  background: #2e7d32;
+}
+
+.sap-option-row.incorrect .option-indicator {
+  border-color: #c62828;
+  background: #c62828;
+}
+
+.option-text {
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+/* FOOTER */
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.quiz-nav-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* FEEDBACK */
+
+.sap-feedback {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 18px;
+}
+
+.feedback-correct {
+  color: #2e7d32;
+}
+
+.feedback-incorrect {
+  color: #c62828;
+}
+
+/* RESULT SCREEN */
+
+.score-summary {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.all-questions-list {
+  border-radius: var(--sap-radius-m);
+  border: 1px solid var(--sap-border-color);
+  padding: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: #f9fbff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual Q&A card */
+
+.qa-card {
+  background: #ffffff;
+  border-radius: var(--sap-radius-m);
+  padding: 10px 12px;
+  border: 1px solid #e1e7f0;
+}
+
+.qa-question-title {
+  font-size: 0.94rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.qa-options {
+  list-style: none;
+  margin: 0 0 6px;
+  padding-left: 0;
+}
+
+.qa-option {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.qa-option-correct {
+  color: #2e7d32;
+}
+
+.qa-option-selected-wrong {
+  color: #c62828;
+}
+
+.qa-option-selected-correct {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.qa-answer-line {
+  font-size: 0.82rem;
+  color: var(--sap-muted-text);
+}
+
+.result-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* SLIDE-OVER ALL Q PANEL */
+
+.all-questions-panel {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  z-index: 100;
+}
+
+.panel-content {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: var(--sap-shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 16px 16px 18px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #edf0f7;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.panel-subtitle {
+  font-size: 0.78rem;
+  color: var(--sap-muted-text);
+  margin: 2px 0 0;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.panel-backdrop {
+  flex: 1;
+  background: rgba(2, 15, 32, 0.36);
+}
+
+/* UTIL */
+
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .app-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+
+  .panel-content {
+    max-width: 100%;
+    border-radius: 0;
+  }
 }
