@@ -1,5 +1,5 @@
 // QUESTIONS (you can replace this with JSON fetch later)
-const questions = [
+const questions = const questions = [
   {
     "id": 1,
     "text": "What are the prerequisites for deleting business partner attribute master data in SAP BW/4HANA? Note: There are 2 correct answers to this question.",
@@ -170,14 +170,14 @@ const questions = [
   },
   {
     "id": 16,
-    "text": "You use a measure with semantic type \"Amount with Currency Code\" in your SAP HANA HDI calculation view. Which kind of currency reference can be assigned to the measure? Note: There are 2 correct answers to this question.",
+    "text": "You use a measure with semantic type 'Amount with Currency Code' in your SAP HANA HDI calculation view. Which kind of currency reference can be assigned to the measure? Note: There are 2 correct answers to this question.",
     "options": {
       "A": "Another column of the same SAP HANA view",
       "B": "A variable in the same SAP HANA view",
       "C": "A column from another SAP HANA view",
       "D": "A fixed currency from table TCURC"
     },
-    "correct": []
+    "correct": ["B", "C"]
   },
   {
     "id": 17,
@@ -314,9 +314,562 @@ const questions = [
       "D": "Key figure property"
     },
     "correct": "B"
+  },
+  {
+    "id": 31,
+    "text": "You have an existing field-based data flow that follows the LSA++ concept. To meet a new urgent business requirement for a field, you want to leverage a hierarchy of an existing characteristic without changing the transformation. How can you achieve this? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Assign hierarchy properties to the field in the BW Query",
+      "B": "Associate the field with the characteristic in the Composite Provider",
+      "C": "Add the characteristic to the Data Store object (advanced)",
+      "D": "Associate the field with the characteristic in the Open ODS View"
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 32,
+    "text": "Which recommendations should you follow to optimize BW query performance? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Dereference reusable filters",
+      "B": "Include fewer drill-down characteristics in the initial view",
+      "C": "Use the include mode within filter reasons",
+      "D": "Create linked components",
+      "E": "Use mandatory characteristic value variables"
+    },
+    "correct": ["B", "C", "E"]
+  },
+  {
+    "id": 33,
+    "text": "What are some of the variable types in a BW query that can use the processing type SAP HANA Exit? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Formula",
+      "B": "Hierarchy node",
+      "C": "Text",
+      "D": "Characteristic value"
+    },
+    "correct": ["B", "D"]
+  },
+  {
+    "id": 34,
+    "text": "You have already loaded data from a non-SAP system into SAP Datasphere. You want to federate this data with data from an InfoCube of your SAP BW powered by SAP HANA system. What do you need to use to combine the data?",
+    "options": {
+      "A": "SAP ABAP Connection",
+      "B": "SAP BW/4HANA Model Transfer",
+      "C": "BW Shell Migration",
+      "D": "BW Remote Migration"
+    },
+    "correct": ["A"]
+  },
+  {
+    "id": 35,
+    "text": "Which development object needs to be built to generate an HDI Container?",
+    "options": {
+      "A": "Space",
+      "B": "Package",
+      "C": "SQL Script procedure",
+      "D": "HDB module"
+    },
+    "correct": ["D"]
+  },
+  {
+    "id": 36,
+    "text": "You defined a condition in a BW query for the top 10 of 100 customers based on sales revenue. Using key figure properties in the BW query, which two scenarios regarding result presentation can be achieved? Note: There are 2 correct answers.",
+    "options": {
+      "A": "One result row with the sales revenue sum of the top 10 customers",
+      "B": "One result row with the sales revenue sum of all 100 customers",
+      "C": "One result row with the sales revenue sum of the top 10 customers and another row with the revenue sum of all 100 customers",
+      "D": "One result row with the top 10 and another row with the other 90 customers"
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 37,
+    "text": "What are the benefits of using an InfoSource in a data flow? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Splitting a complex transformation into simple parts without storing intermediate data",
+      "B": "Enabling a data transfer process (DTP) to execute multiple sequential transformations",
+      "C": "Providing the delta extraction information of the source data",
+      "D": "Realizing direct access to source data without storing them"
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 38,
+    "text": "You want to build an SAP HANA HDI calculation view of data category CUBE, but you get a 'no measure defined' error. For the business requirement, a measure does not make sense. Besides changing the data category to DIMENSION, what do you need to do?",
+    "options": {
+      "A": "Switch from a projection node to an aggregation node",
+      "B": "Switch from an aggregation node to a star join node",
+      "C": "Switch from a projection node to a cube node",
+      "D": "Switch from an aggregation node to a projection node"
+    },
+    "correct": ["D"]
+  },
+  {
+    "id": 39,
+    "text": "You notice that an SAP ERP ODP_SAP DataSource is delivering incorrect values into the first persistent data layer in SAP BW/4HANA. Which options do you have to analyze a potential extractor issue? Note: There are 2 correct answers.",
+    "options": {
+      "A": "Use the program RODPS_REPL_TEST in SAP ERP",
+      "B": "Check entries in the table RSDDSTATEEXTRACT in SAP ERP",
+      "C": "Use the transaction RSA3 (Extractor checker) in SAP ERP",
+      "D": "Use the transaction ODQMON (Monitor Delta Queues) in SAP BW/4HANA"
+    },
+    "correct": ["A", "C"]
+  },
+  {
+    "id": 40,
+    "text": "In a BW query with cells, you need to overwrite the initial definition of a cell. Which cell types can you use? Note: There are 2 correct answers.",
+    "options": {
+      "A": "Formula cell",
+      "B": "Selection cell",
+      "C": "Help cell",
+      "D": "Reference cell"
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 41,
+    "text": "You open an SAP Analysis for Microsoft Office workbook. On which Design Panel tabs can you verify the filter values? Note: There are 2 correct answers.",
+    "options": {
+      "A": "Information",
+      "B": "Components",
+      "C": "Analysis",
+      "D": "Design Rules"
+    },
+    "correct": ["A", "C"]
+  },
+  {
+    "id": 42,
+    "text": "Which SAP BW/4HANA objects can be used as sources of a data transfer process (DTP)? Note: There are 3 correct answers.",
+    "options": {
+      "A": "Composite Provider",
+      "B": "Data Store Object (advanced)",
+      "C": "Open Hub Destination",
+      "D": "InfoSource",
+      "E": "SAP HANA Analysis Process"
+    },
+    "correct": ["B", "C", "E"]
+  },
+  {
+    "id": 43,
+    "text": "What are some of the advantages of using SAP BW/4HANA business content? Note: There are 2 correct answers.",
+    "options": {
+      "A": "Accelerated SAP BW/4HANA implementation using ready-made models",
+      "B": "Ability to modify business content objects to meet customer-specific requirements",
+      "C": "Automatic content activation during installation",
+      "D": "Automatic generation of Analysis Authorizations during activation"
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 44,
+    "text": "Your company manufactures products with country-specific serial numbers. How do you need to model the characteristic PRODUCT to store different attribute values for serial numbers?",
+    "options": {
+      "A": "Use SERIAL_NO as a compounding characteristic for PRODUCT",
+      "B": "Use SERIAL_NO as a transitive attribute for PRODUCT",
+      "C": "Use COUNTRY as a navigation attribute for PRODUCT",
+      "D": "Use COUNTRY as a compounding characteristic for PRODUCT"
+    },
+    "correct": ["C"]
+  },
+  {
+    "id": 45,
+    "text": "Which external hierarchy properties can be changed in the query definition? Note: There are 3 correct answers.",
+    "options": {
+      "A": "Position of child nodes",
+      "B": "Sort direction",
+      "C": "Display text nodes",
+      "D": "Expand to level",
+      "E": "Time dependency"
+    },
+    "correct": ["A", "B", "D"]
+  },
+  {
+    "id": 46,
+    "text": "You want to set up the replication process for the SAP Landscape Transformation Replication Server. Which actions can you define for a specific table? Note: There are 3 correct answers.",
+    "options": {
+      "A": "Convert Unicode to non-Unicode",
+      "B": "Change or enrich the table structure",
+      "C": "Set the reading type and portion sizes",
+      "D": "Apply customizing settings to the database reduce",
+      "E": "Apply mapping rules during the replication"
+    },
+    "correct": ["B", "C", "E"]
+  },
+  {
+    "id": 47,
+    "text": "Why should you run an SAP HANA delta merge? Note: There are 2 correct answers.",
+    "options": {
+      "A": "To decrease memory consumption",
+      "B": "To improve the read performance",
+      "C": "To combine the query cache from different executions",
+      "D": "To move the most recent data from disk to memory"
+    },
+    "correct": ["B", "D"]
+  },
+  {
+    "id": 48,
+    "text": "When loading master data for a material, you want to see the new values before they are released for reporting. How can you make this possible? Note: There are 2 correct answers.",
+    "options": {
+      "A": "Define attributes of the material characteristic as Time Dependent",
+      "B": "Select 'Get All New Data Request by Request' in the data transfer",
+      "C": "Set 'Set manually' for Overall status of request in the DTP",
+      "D": "Select Enhanced Master Data Update for the characteristic"
+    },
+    "correct": ["A", "D"]
+  },
+  {
+    "id": 51,
+    "text": "What are some of the prerequisites for using SAP S/4HANA ABAP CDS views for extraction into SAP BW/4HANA in an ODP context? Note: There are 2 correct answers.",
+    "options": {
+      "A": "The ABAP CDS views must be defined with the appropriate data extraction annotations.",
+      "B": "The ABAP CDS views must be released via the program RODPS_OS_EXPOSE for BW extraction.",
+      "C": "The Operational Data Provisioning Framework must be configured in SAP BW/4HANA.",
+      "D": "An ODP source system with context CDS must be created in SAP BW/4HANA."
+    },
+    "correct": ["A", "B"]
+  },
+  {
+    "id": 52,
+    "text": "You use Info Object B as a display attribute for Info Object A. Which object properties prevent you from changing Info Object B into a navigational attribute for Info Object A? Note: There are 3 correct answers.",
+    "options": {
+      "A": "Conversion Routine 'ALPHA' is set in Info Object A.",
+      "B": "Data Type 'Character String' is set in Info Object A.",
+      "C": "Attribute Only is set in Info Object B",
+      "D": "Info Object B is defined as a Key Figure.",
+      "E": "High Cardinality is set in Info Object B."
+    },
+    "correct": ["C", "D", "E"]
+  },
+  {
+    "id": 53,
+    "text": "What foundation is necessary to use SAP S/4HANA embedded analytics?",
+    "options": {
+      "A": "Generated external SAP HANA Calculation Views",
+      "B": "SAP Agile Data Preparation",
+      "C": "SAP HANA optimized business content",
+      "D": "ABAP CDS view based virtual data model"
+    },
+    "correct": ["D"]
+  },
+  {
+    "id": 54,
+    "text": "What is the maximum number of reference characteristics that can be used for one key figure with a multi-dimensional exception aggregation in a BW query?",
+    "options": {
+      "A": "07",
+      "B": "10",
+      "C": "05",
+      "D": "03"
+    },
+    "correct": ["C"]
+  },
+  {
+    "id": 55,
+    "text": "Which data deletion options are offered for a Standard Datastore Object (advanced)? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Selective deletion of data",
+      "B": "Request-based data deletion",
+      "C": "Deletion of data from all tables",
+      "D": "Selective deletion including data of subsequent targets",
+      "E": "Deletion of all data from active table only"
+    },
+    "correct": ["A", "D", "E"]
+  },
+  {
+    "id": 56,
+    "text": "What should you consider when you set the High Cardinality flag for a characteristic? Note: There are 2 correct answers.",
+    "options": {
+      "A": "You cannot use this characteristic as an external characteristic in hierarchies.",
+      "B": "You cannot use navigation attributes for this characteristic.",
+      "C": "You cannot use this characteristic as a navigation attribute for another characteristic.",
+      "D": "You cannot load more than 2 billion data records for this characteristic."
+    },
+    "correct": ["B", "C"]
+  },
+  {
+    "id": 57,
+    "text": "Which objects in SAP BW/4HANA allow you to use both fields and Info Objects in their definition? Note: There are 3 correct answers.",
+    "options": {
+      "A": "BADI Provider",
+      "B": "Datastore Object (advanced)",
+      "C": "Composite Provider",
+      "D": "Open ODS View",
+      "E": "Info Object Type Key Figure"
+    },
+    "correct": ["B", "C", "D"]
+  },
+  {
+    "id": 58,
+    "text": "For Info Object ADDRESS, the High Cardinality flag has been set. However, ADDRESS has an attribute CITY without the High Cardinality flag. What is the effect of SID values on this scenario?",
+    "options": {
+      "A": "SID values are generated when Info Object ADDRESS is activated.",
+      "B": "SID values are generated when data for Info Object ADDRESS is loaded.",
+      "C": "SID values are generated when Info Object CITY is activated.",
+      "D": "SID values are not stored for Info Object ADDRESS"
+    },
+    "correct": ["D"]
+  },
+  {
+    "id": 59,
+    "text": "You are allowed to run a BW query, but the data selection is only partially covered by your authorizations. What happens related to the BW query in this scenario?",
+    "options": {
+      "A": "The BW query starts and shows an error message.",
+      "B": "The BW query does not start running.",
+      "C": "The BW query starts, and the unauthorized values are 0.",
+      "D": "The BW query starts and only the raised data is displayed."
+    },
+    "correct": ["D"]
+  },
+  {
+    "id": 60,
+    "text": "Which solution enables advanced AI and machine learning models on combined SAP and third-party data?",
+    "options": {
+      "A": "SAP Analytics Cloud",
+      "B": "SAP AI Launchpad",
+      "C": "SAP Databricks",
+      "D": "SAP Datasphere"
+    },
+    "correct": ["C"]
+  },
+  {
+    "id": 61,
+    "text": "In which ODP context is the operational delta queue (ODQ) managed by the target system?",
+    "options": {
+      "A": "ODP HANA",
+      "B": "ODP CDS",
+      "C": "ODP_BW",
+      "D": "DP SAP"
+    },
+    "correct": ["A"]
+  },
+  {
+    "id": 62,
+    "text": "Which objects' values can be affected by the key date in a BW query? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Hierarchies",
+      "B": "Basic key figures",
+      "C": "Navigation attributes",
+      "D": "Time characteristics",
+      "E": "Display attributes"
+    },
+    "correct": ["A", "D", "E"]
+  },
+  {
+    "id": 63,
+    "text": "Why is the start process a special type of process in a process chain? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "It can be left out when the Procession is embedded in a meta chain.",
+      "B": "Only one start process is allowed for each process chain.",
+      "C": "It can be a successor to another process.",
+      "D": "It is the only process that can be scheduled without a predecessor."
+    },
+    "correct": ["B", "D"]
+  },
+  {
+    "id": 64,
+    "text": "The Database Explorer in the Web IDE for SAP HANA provides a data file import wizard to create a table in SAP HANA from a flat file. What are possible actions after the system suggests the target structure? Note: There are 3 correct answers.",
+    "options": {
+      "A": "Define sorting properties for a target table field.",
+      "B": "Change the order of the fields in the target table.",
+      "C": "Remove leading zeroes for a target table field.",
+      "D": "Adjust the suggested data type of the target table fields.",
+      "E": "Switch the table type between row store and column store."
+    },
+    "correct": ["B", "D", "E"]
+  },
+  {
+    "id": 65,
+    "text": "Why do you set Read Access Type to 'SAP HANA View' in a BW Info Object?",
+    "options": {
+      "A": "To report master data attributes which are defined in calculation views",
+      "B": "To use the Info Object as an association within an Open ODS view",
+      "C": "To enable parallel loading of master data texts",
+      "D": "To generate an SAP HANA calculation view, data category Dimension"
+    },
+    "correct": ["A"]
+  },
+  {
+    "id": 66,
+    "text": "In an SAP HANA smart data integration flowgraph, which transformation options are available? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Split datasets",
+      "B": "Run an SAP HANA analysis process",
+      "C": "Call an ABAP function module",
+      "D": "Include a stored procedure",
+      "E": "Combine datasets"
+    },
+    "correct": ["A", "D", "E"]
+  },
+  {
+    "id": 67,
+    "text": "How does SAP position SAP Datasphere in supporting business users? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Business users can upload their own CSV files.",
+      "B": "Business users can create agile models from different sources.",
+      "C": "Business users can leverage embedded analytic Fiori apps for data analysis.",
+      "D": "Business users can allocate system resources without IT involvement.",
+      "E": "Business users can create restricted and calculated columns based on existing models."
+    },
+    "correct": ["A", "B", "E"]
+  },
+  {
+    "id": 68,
+    "text": "You created an Open ODS view of type Facts. With which object types can you associate a field in the characteristics folder? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Info Object of type Characteristic",
+      "B": "HDI Calculation View of data category Dimension",
+      "C": "Open ODS view of type Master D",
+      "D": "Open ODS view of type Facts"
+    },
+    "correct": ["A", "D"]
+  },
+  {
+    "id": 69,
+    "text": "Which features does SAP Analysis for Microsoft Office provide? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Including more than one data source",
+      "B": "Creating bookmarks for a navigation state",
+      "C": "Displaying data simultaneously in a table and a chart",
+      "D": "Dragging measures in and out of the repo",
+      "E": "Changing context menu entries"
+    },
+    "correct": ["A", "B", "C"]
+  },
+  {
+    "id": 70,
+    "text": "In SAP Web IDE for SAP HANA, you have imported a project including an HDB module with calculation views. What do you need to do in the project settings before you can successfully build the HDB module?",
+    "options": {
+      "A": "Generate the HDI container",
+      "B": "Define a package",
+      "C": "Assign a space",
+      "D": "Change the schema name"
+    },
+    "correct": ["C"]
+  },
+  {
+    "id": 71,
+    "text": "For which use case would you need to model a transitive attribute?",
+    "options": {
+      "A": "Load attributes using the enhanced master data update",
+      "B": "Report on navigational attributes factional attributes",
+      "C": "Store time-dependent snapshots of master data attributes",
+      "D": "Generate a transient provider for a BW query on master data attributes"
+    },
+    "correct": ["A"]
+  },
+  {
+    "id": 72,
+    "text": "You create an SAP HANA HDI Calculation View. What are some of the reasons to choose the data category Cube with Star Join instead of data category Dimension? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "You can aggregate measures as a sum.",
+      "B": "You can provide default time characteristics.",
+      "C": "You can create restricted columns.",
+      "D": "You can persist with transactional data.",
+      "E": "You can combine master data and transactional data."
+    },
+    "correct": ["A", "D", "E"]
+  },
+  {
+    "id": 73,
+    "text": "Which tasks are part of the Business Blueprint phase in an SAP BW/4HANA project? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Associate an Info Object to a field in an ODS view",
+      "B": "Collect central and individual information requirements",
+      "C": "Activate SAP business content objects that comply with the LSA++ architecture",
+      "D": "Analyze key performance indicators of the business processes"
+    },
+    "correct": ["B", "D"]
+  },
+  {
+    "id": 74,
+    "text": "You need to derive an architecture overview model from a key figure matrix. Which is the first step you need to take?",
+    "options": {
+      "A": "Identify sources",
+      "B": "Analyze storage requirements",
+      "C": "Identify transformations",
+      "D": "Define data marts"
+    },
+    "correct": ["A"]
+  },
+  {
+    "id": 75,
+    "text": "What are benefits of using an Info Source in a data flow? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Providing the delta extraction information of the source data",
+      "B": "Enabling a data transfer process (DTP) to execute multiple sequential transformation",
+      "C": "Realizing direct access to source data without storing them",
+      "D": "Splitting a complex transformation into simple parts without storing intermediate data"
+    },
+    "correct": ["B", "D"]
+  },
+  {
+    "id": 76,
+    "text": "You want to create a restricted column in an SAP HANA HDI calculation view. What do you need to define? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "An SAP HANA data type",
+      "B": "An aggregation method",
+      "C": "A condition criterion",
+      "D": "A reference to an existing measure"
+    },
+    "correct": ["C", "D"]
+  },
+  {
+    "id": 77,
+    "text": "What are benefits of separating master data from transactional data in SAP BW/4HANA? Note: There are 3 correct answers to this question.",
+    "options": {
+      "A": "Allowing different data load frequency",
+      "B": "Ensuring referential integrity on your sectional data",
+      "C": "Avoiding generation of SID values",
+      "D": "Reducing the number of database tables",
+      "E": "Providing language-dependent master data texts"
+    },
+    "correct": ["A", "B", "E"]
+  },
+  {
+    "id": 78,
+    "text": "With SAP BW/4HANA, the new HANA-optimized business content is designed according to the LSA++ framework. Which technical namespace is assigned to identify the new SAP ERP-related business content?",
+    "options": {
+      "A": "/SFA/",
+      "B": "/IMO/",
+      "C": "/CPMB/",
+      "D": "/BW4/"
+    },
+    "correct": ["B"]
+  },
+  {
+    "id": 79,
+    "text": "What is the request handling default setting for error handling in a data transfer process (DTP) in SAP BW/4HANA?",
+    "options": {
+      "A": "Request is set to fail, error stack is written, and valid records are updated.",
+      "B": "Request is canceled, records are noted, and target is not updated.",
+      "C": "Request is canceled, first incorrect record is tracked, and target is not updated.",
+      "D": "Request is set to success, error stack is written, and valid records are updated."
+    },
+    "correct": ["B"]
+  },
+  {
+    "id": 80,
+    "text": "What are the reasons for implementing Composite Providers? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "To persist combined data for reporting",
+      "B": "To provide a virtual data mart layer that combines existing BW models",
+      "C": "To provide an interface for BW queries",
+      "D": "To directly expose an SAP HANA table via an external schema"
+    },
+    "correct": ["B", "C"]
+  },
+  {
+    "id": 81,
+    "text": "Which features of an SAP BW/4HANA Info Object are intended to reduce physical data storage space? Note: There are 2 correct answers to this question.",
+    "options": {
+      "A": "Reference characteristic",
+      "B": "Enhanced master data update",
+      "C": "Compounding characteristic",
+      "D": "Transitive attribute"
+    },
+    "correct": ["A", "D"]
   }
-]
-;
+];
+
 
 // STATE
 let mode = null;
@@ -486,5 +1039,6 @@ function restart() {
   document.getElementById("result-screen").classList.add("hidden");
   document.getElementById("mode-screen").classList.remove("hidden");
 }
+
 
 
