@@ -2,49 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SAP BW4HANA SIMULATOR 2025</title>
+  <title>SAP BW/4HANA Exam Simulator 2025</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- PDF export (fallback to window.print if offline) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+          integrity="sha512-YcsIPM8IHAGq8YlYvGZo4PMBVXsfSx6x3VP0J9jZ2GQ8Wc8A3GS9hS4Gd0hM6z1jQkV+4oAXo3Iupn0Qp+0m3Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-
-  <div class="sap-container">
-
-    <div id="mode-screen" class="sap-panel">
-      <h1 class="sap-title">SAP BW/4HANA Exam Simulator</h1>
-      <p>Select Mode:</p>
-      <button class="sap-btn" onclick="startQuiz('practice')">Practice Mode</button>
-      <button class="sap-btn" onclick="startQuiz('exam')">Exam Mode</button>
-    </div>
-
-    <div id="quiz-screen" class="sap-panel hidden">
-      <div class="sap-header">
-        <span id="mode-label"></span>
-        <span id="question-counter"></span>
+  <div class="app-shell">
+    <!-- Top App Bar -->
+    <header class="app-header">
+      <div class="app-title-block">
+        <div class="app-title">SAP BW/4HANA Exam Simulator</div>
+        <div class="app-subtitle">2025 Practice & Review</div>
       </div>
-
-      <div id="question-text" class="sap-question"></div>
-
-      <div id="options-container" class="sap-options"></div>
-
-      <div id="feedback" class="sap-feedback"></div>
-
-      <div class="sap-footer">
-        <button id="prev-btn" class="sap-btn" onclick="prevQuestion()">Previous</button>
-        <button id="next-btn" class="sap-btn" onclick="nextQuestion()">Next</button>
-        <button id="finish-btn" class="sap-btn hidden" onclick="finishExam()">Finish</button>
+      <div class="app-header-actions">
+        <button id="all-qa-btn" class="sap-btn sap-btn-secondary" onclick="toggleAllQuestionsPanel()">
+          All Q &amp; Answers
+        </button>
+        <button id="export-pdf-btn" class="sap-btn sap-btn-primary" onclick="exportPDF()">
+          Export PDF
+        </button>
       </div>
-    </div>
+    </header>
 
-    <div id="result-screen" class="sap-panel hidden">
-      <h2 class="sap-title">Test Report</h2>
-      <p id="score-summary"></p>
-      <div id="detailed-report"></div>
-      <button class="sap-btn" onclick="restart()">Back to Home</button>
-    </div>
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Quiz Card -->
+      <section id="quiz-screen" class="sap-card">
+        <div class="quiz-header">
+          <div class="quiz-meta">
+            <span id="question-counter" class="quiz-counter">Loading...</span>
+            <span id="total-questions" class="quiz-total"></span>
+          </div>
+          <div class="quiz-progress">
+            <div id="progress-bar" class="progress-bar">
+              <div id="progress-bar-inner" class="progress-bar-inner"></div>
+            </div>
+          </div>
+        </div>
 
+        <div id="question-text" class="sap-question">
+          Loading questions...
+        </div>
+
+        <div id="options-container" class="sap-options"></div>
+
+        <div class="quiz-footer">
+          <button id="show-answer-btn" class="sap-btn sap-btn-ghost" onclick="showAnswer()">
+            Show Answer
+          </button>
+          <div class="quiz-nav-buttons">
+            <button id="prev-btn" class="sap-btn" onclick="prevQuestion()">Previous</button>
+            <button id="next-btn" class="sap-btn sap-btn-primary" onclick="nextQuestion()">Next</button>
+            <button id="finish-btn" class="sap-btn sap-btn-accent" onclick="finishExam()">Finish</button>
+          </div>
+        </div>
+
+        <div id="feedback" class="sap-feedback"></div>
+      </section>
+
+      <!-- Result / Scrollable All-Q View -->
+      <section id="result-screen" class="sap-card hidden">
+        <h2 class="sap-title">Test Report</h2>
+        <p id="score-summary" class="score-summary"></p>
+
+        <!-- This wrapper is used for both on-screen scroll and PDF export -->
+        <div id="all-questions-print">
+          <h3 class="sap-subtitle">All Questions &amp; Correct Answers</h3>
+          <div id="all-questions-container" class="all-questions-list"></div>
+        </div>
+
+        <div class="result-actions">
+          <button class="sap-btn sap-btn-secondary" onclick="restart()">Restart Quiz</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Slide-over Panel for All Q & A while still in quiz -->
+    <div id="all-questions-panel" class="all-questions-panel hidden">
+      <div class="panel-content">
+        <div class="panel-header">
+          <div>
+            <h3>All Questions &amp; Answers</h3>
+            <p class="panel-subtitle">Scroll to review all correct answers.</p>
+          </div>
+          <button class="sap-btn sap-btn-ghost" onclick="toggleAllQuestionsPanel()">Close</button>
+        </div>
+        <div class="panel-body">
+          <!-- Re-used content for panel view -->
+          <div id="all-questions-panel-container" class="all-questions-list"></div>
+        </div>
+      </div>
+      <div class="panel-backdrop" onclick="toggleAllQuestionsPanel()"></div>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
