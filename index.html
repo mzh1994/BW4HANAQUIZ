@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAP Classic Quiz Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sap-container">
+
+    <div id="mode-screen" class="sap-panel">
+      <h1 class="sap-title">SAP BW/4HANA Exam Simulator</h1>
+      <p>Select Mode:</p>
+      <button class="sap-btn" onclick="startQuiz('practice')">Practice Mode</button>
+      <button class="sap-btn" onclick="startQuiz('exam')">Exam Mode</button>
+    </div>
+
+    <div id="quiz-screen" class="sap-panel hidden">
+      <div class="sap-header">
+        <span id="mode-label"></span>
+        <span id="question-counter"></span>
+      </div>
+
+      <div id="question-text" class="sap-question"></div>
+
+      <div id="options-container" class="sap-options"></div>
+
+      <div id="feedback" class="sap-feedback"></div>
+
+      <div class="sap-footer">
+        <button id="prev-btn" class="sap-btn" onclick="prevQuestion()">Previous</button>
+        <button id="next-btn" class="sap-btn" onclick="nextQuestion()">Next</button>
+        <button id="finish-btn" class="sap-btn hidden" onclick="finishExam()">Finish</button>
+      </div>
+    </div>
+
+    <div id="result-screen" class="sap-panel hidden">
+      <h2 class="sap-title">Test Report</h2>
+      <p id="score-summary"></p>
+      <div id="detailed-report"></div>
+      <button class="sap-btn" onclick="restart()">Back to Home</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
