@@ -418,6 +418,7 @@ body {
   margin-top: 16px;
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
 }
 
 /* SLIDE-OVER ALL Q PANEL */
@@ -457,6 +458,12 @@ body {
   font-size: 0.78rem;
   color: var(--sap-muted-text);
   margin: 2px 0 0;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .panel-body {
